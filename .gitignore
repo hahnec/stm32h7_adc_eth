@@ -1,0 +1,7 @@
+/.settings
+
+/Debug/*
+!/Debug/*.hex
+
+./py_udp_receiver/venv
+./py_udp_receiver/.idea
