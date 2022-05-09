@@ -34,18 +34,19 @@ This project is a minimum working example to establish an Ethernet connection vi
     - `$ apt-get install gcc-arm-none-eabi`
 4. download and install **st-link** from GitHub repository for STLINK/V3 support
     - `$ git clone`
-    - `$ make clean && release && make install && make debug && make package`   ([see compile manual for details](https://github.com/stlink-org/stlink/blob/develop/doc/compiling.md))
+    - `$ make clean && release && make install && make debug && make package`   ([see compile manual](https://github.com/stlink-org/stlink/blob/develop/doc/compiling.md))
     - `$ dpkg -i ./build/Release/dist/stlink_1.7.0-186-gc4762e6-1_amd64.deb`
     - `$ apt install ./build/Release/dist/stlink_1.7.0-186-gc4762e6-1_amd64.deb`
     - `$ st-info --probe` prints detected stlink devices if installed successfully
 5. generate code, compile binary and flash µC
-   1. open CubeMX and click **GENERATE CODE**
+   1. open project file *H743ZI_LwIP_ADC+ETH.ioc* in CubeMX and click **GENERATE CODE**
    2. `cd` into project directory (`./stm32h7_adc_eth`) and compile via `$ make all`
    3. `$ st-flash --reset write ./build/H743ZI_LwIP_ADC+ETH.bin 0x8000000` to flash the µC
 6. print ADC data (noise) from µC sent via Ethernet
     ```
     $ python py_udp_receiver/udp_receiver.py
     ```
+#### Result
 ![](./docs/terminal_result.png)
 
 ### 2. Windows
